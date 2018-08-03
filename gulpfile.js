@@ -23,10 +23,9 @@ gulp.task('sass', function() {
 	return gulp.src('src/static/sass/main.sass')
 		.pipe(sourcemaps.init())
 		.pipe(gp.plumber())
-		.pipe(gp.sass([autoprefixer({
+		.pipe(gp.sass({}))
+		.pipe(gp.autoprefixer({
 			browsers: ['last 10 versions']
-		})])),
-			'include css': true
 		}))
 
 		.on("error", notify.onError(function(error) {
