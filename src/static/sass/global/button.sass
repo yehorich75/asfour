@@ -1,0 +1,23 @@
+.button
+    display: inline-block
+    border-radius: 3px
+    padding: 10px 20px
+    text-decoration: none
+    color: #ffffff
+    &--red
+        background: $red-color
+        transition: 0.3s
+        &:hover
+            background: lighten($red-color, 7%)
+    &--yellow
+        background: #f8cd53
+        font-size: 20px
+        font-weight: 700
+        text-transform: uppercase
+        letter-spacing: 1px
+        padding: 21px 42px
+        border-radius: 5px
+        &:hover
+            background: lighten(#f8cd53, 7%)
+    &--text-uppercase
+        text-transform: uppercase

@@ -1,0 +1,26 @@
+html
+    box-sizing: border-box
+    
+body
+    font-family: $ff-main
+    font-size: 1rem
+    color: $font-color
+    line-height: 1.2
+
+*, *:before, *:after
+    box-sizing: inherit
+
+ul, ol 
+    list-style: none
+
+.clearfix
+    &:after
+        content: ''
+        display: table
+        clear: both
+
+h1
+    font-family: $ff-main-bold
+
+img
+    max-width: 100%

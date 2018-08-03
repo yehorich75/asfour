@@ -1,0 +1,125 @@
+@media (max-width: 360px)
+    .top
+        grid-template-columns: 100vw
+        .hero__title
+            width: 100vw
+            margin: 0
+            .logo
+                display: none
+                // margin: $gap*2 auto 0
+                // width: 115px
+        .fixed
+            height: 12vh
+            .nav
+                position: fixed
+                top: -300px
+                height: 100%
+                transition: left 1s ease-out 0.5s
+            .nav__active
+                left: 0
+                flex-direction: column
+                height: auto
+                .nav__link
+                    width: 100%
+            
+            .menu__icon
+                display: block
+                height: 30px
+                width: 30px
+                margin: auto
+                cursor: pointer
+                .divide
+                    display: block
+                    height: 2px
+                    margin: 5px 0
+                    background: $font-color
+        .hero__captions,
+        .contacts,
+        .socials
+            display: none       
+
+    .product__items
+        .product__item
+            flex-direction: column
+            padding: 20px 0
+            h4.product__item--title
+                margin: 0 auto
+                padding: 0 15px 15px
+                transform: none
+                writing-mode: horizontal-tb
+                position: inherit
+                right: 0
+            .product__item--info
+                width: 100%
+                text-align: center
+                .product__item--info-img
+                    img
+                        width: 50%
+                        height: auto
+                        padding: 10px 5px
+                &-text
+                    padding: 0 30px
+                    text-align: left
+
+    section
+        padding: 25px 0
+        h2
+            margin: 0 0 25px
+
+    section.video
+        .video__present
+            width: auto
+
+    .certificate
+        .certificate__items
+            .certificate__item
+                width: 100%
+                height: auto
+
+    footer.footer
+        padding: 50px 0 35px
+        .footer__contacts
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            padding: 0 20px
+            text-align: center
+
+@media (max-width: 720px)
+    .top
+        grid-template-columns: 100vw
+        .hero__title
+            width: 100vw
+            left: 0
+            .contacts__address
+                span
+                    padding: 0 5px
+        .hero__captions
+            display: none
+
+    .product
+        .product__items
+            .product__item
+                padding: 20px 0
+                width: 100%
+                h4.product__item--title
+                    margin: 0 auto
+                    padding: 0 15px 15px
+                    transform: none
+                    writing-mode: horizontal-tb
+                    position: inherit
+                    right: 0
+                    .product__item--info-img
+                        img
+                            width: 100%
+                            height: 100%
+                            padding: 10px 5px
+                    &-text
+                        padding: 0 30px
+                        text-align: left
+
+    .certificate__items
+        .certificate__item
+            width: 100%
+
