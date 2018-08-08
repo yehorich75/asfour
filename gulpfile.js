@@ -3,13 +3,14 @@
 var gulp = require('gulp'),
 	gp = require('gulp-load-plugins')(),
 	notify = require('gulp-notify'),
+	rename = require('gulp-rename'),
 	browserSync = require('browser-sync').create(),
 	sourcemaps = require('gulp-sourcemaps'),
 	autoprefixer = ('gulp-autoprefixer');
 
 // Работа с Pug
 gulp.task('pug', function() {
-	return gulp.src('src/pug/pages/*.pug')
+	return gulp.src('src/pug/index.pug')
 		.pipe(gp.plumber())
 		.pipe(gp.pug({
 			pretty: true
@@ -33,7 +34,8 @@ gulp.task('sass', function() {
 		}))
 		.pipe(gp.csso())
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('build/static/css'))
+		.pipe(rename("main.min.css"))
+		.pipe(gulp.dest('build/css'))
 		.pipe(browserSync.reload({
 			stream: true
 		}));
