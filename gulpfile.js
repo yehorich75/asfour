@@ -1,12 +1,16 @@
 'use strict'
 
-var gulp = require('gulp'),
-	gp = require('gulp-load-plugins')(),
-	notify = require('gulp-notify'),
-	rename = require('gulp-rename'),
-	browserSync = require('browser-sync').create(),
-	sourcemaps = require('gulp-sourcemaps'),
-	autoprefixer = ('gulp-autoprefixer');
+var gulp            = require('gulp'),
+	gp              = require('gulp-load-plugins')(),
+	notify          = require('gulp-notify'),
+	rename          = require('gulp-rename'),
+	browserSync     = require('browser-sync').create(),
+	imagemin        = require('gulp-imagemin'),
+	mozjpeg         = require('imagemin-mozjpeg'),
+	sourcemaps      = require('gulp-sourcemaps'),
+	concat          = require('gulp-concat'),
+	uglify          = require('gulp-uglify'),
+	autoprefixer    = require('gulp-autoprefixer');
 
 // Работа с Pug
 gulp.task('pug', function() {
@@ -24,7 +28,9 @@ gulp.task('sass', function() {
 	return gulp.src('src/static/sass/main.sass')
 		.pipe(sourcemaps.init())
 		.pipe(gp.plumber())
-		.pipe(gp.sass({}))
+		.pipe(gp.sass({
+			'include css':true
+		}))
 		.pipe(gp.autoprefixer({
 			browsers: ['last 10 versions']
 		}))
@@ -35,7 +41,7 @@ gulp.task('sass', function() {
 		.pipe(gp.csso())
 		.pipe(sourcemaps.write())
 		.pipe(rename("main.min.css"))
-		.pipe(gulp.dest('build/css'))
+		.pipe(gulp.dest('build/static/css'))
 		.pipe(browserSync.reload({
 			stream: true
 		}));
@@ -50,30 +56,54 @@ gulp.task('serve', function() {
 	});
 });
 
+// Работа с Img
+gulp.task('img:build', function() {
+	return gulp.src('src/static/img/**/*.{jpg, png, webp, gif}')
+		.pipe(imagemin([
+			mozjpeg({
+				quality: 65
+			})
+		]))
+		.pipe(gulp.dest('build/static/img/'));
+});
+
+
 // Работа с JS
-gulp.task('scripts', function() {
+gulp.task('scripts:lib', function() {
 	return gulp.src([
 			// Библиотеки
-			'build/static/libs/magnific/jquery.magnific-popup.min.js',
-			'build/static/libs/bxslider/jquery.bxslider.min.js',
-			'build/static/libs/maskedinput/maskedinput.js',
-			'build/static/libs/slick/slick.min.js',
-			'build/static/libs/validate/jquery.validate.min.js'
+			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/slick-carousel/slick/slick.min.js',
+			'src/static/js/smooth-scroll.polyfills.min.js',
+			// 'build/static/libs/magnific/jquery.magnific-popup.min.js',
+			// 'build/static/libs/bxslider/jquery.bxslider.min.js',
+			// 'build/static/libs/maskedinput/maskedinput.js',
+			// 'build/static/libs/validate/jquery.validate.min.js'
 		])
 		.pipe(concat('libs.min.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('build/static/js'))
-		.pipe(browsersync.reload({
+		.pipe(gulp.dest('build/static/js/'))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
+});
+
+gulp.task('scripts', function() {
+	return gulp.src('src/static/js/common.js')
+		.pipe(uglify())
+		.pipe(gulp.dest('build/static/js/'))
+		.pipe(browserSync.reload({
 			stream: true
 		}));
 });
 
 gulp.task('watch',function () {
 	gulp.watch('src/pug/**/*.pug',gulp.series('pug'));
-	gulp.watch('src/static/sass/*.sass',gulp.series('sass'))
+	gulp.watch('src/static/sass/*.sass',gulp.series('sass'));
+	gulp.watch('src/static/js/common.js',gulp.series('scripts'))
 });
 
 gulp.task('default',gulp.series(
-	gulp.parallel('pug','sass'),
+	gulp.parallel('pug','sass','scripts:lib', 'scripts'),
 	gulp.parallel('watch','serve')
 ));
