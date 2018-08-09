@@ -54,3 +54,9 @@ jQuery(document).ready(function($) {
         $('.fixed .nav').toggleClass('.fixed .nav__active');
     });
 });
+
+$(document).ready(function(){
+    $('.fixed.menu__icon')click(function(){
+        $('.fixed.menu__icon').toggleClass('active')
+    })
+})

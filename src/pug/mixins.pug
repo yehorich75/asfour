@@ -10,3 +10,7 @@ mixin product-card(title, link, item_img, img_1, img_2, text, catalog_1, catalog
                 a(href= catalog_2)= catalog_2_name
                     i.far.fa-file-pdf
 
+mixin icon(name,mod)
+    - mod = mod || ''
+    svg(class="icon icon-" + name + ' ' + mod)
+        use(xlink:href="static/img/svg/symbol/sprite.svg#" + name)
