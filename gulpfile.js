@@ -10,6 +10,10 @@ var gulp            = require('gulp'),
 	sourcemaps      = require('gulp-sourcemaps'),
 	concat          = require('gulp-concat'),
 	uglify          = require('gulp-uglify'),
+	svgmin          = require('gulp-svgmin'),
+	cheerio         = require('gulp-cheerio'),
+	replace         = require('gulp-replace'),
+	svgSprite       = require('gulp-svg-sprite'),
 	autoprefixer    = require('gulp-autoprefixer');
 
 // Работа с Pug
@@ -45,6 +49,33 @@ gulp.task('sass', function() {
 		.pipe(browserSync.reload({
 			stream: true
 		}));
+});
+
+// SVG Sprite
+gulp.task('svg', () => {
+	return gulp.src('./src/static/img/svg/*.svg')
+		.pipe(svgmin({
+			js2svg: {
+				pretty: true
+			}
+		}))
+		.pipe(cheerio({
+			run: function($) {
+				$('[fill]').removeAttr('fill');
+				$('[stroke]').removeAttr('stroke');
+				$('[style]').removeAttr('style');
+			},
+			parserOptions: { xmlMode: true }
+		}))
+		.pipe(replace('&gt;', '>'))
+		.pipe(svgSprite({
+			mode: {
+				symbol: {
+					sprite: "sprite.svg"
+				}
+			}
+		}))
+		.pipe(gulp.dest('./build/static/img/svg/'));
 });
 
 // Browsersync

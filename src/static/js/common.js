@@ -49,8 +49,14 @@ var options = { speed: 3000, easing: "easeOutCubic" };
 //     loop: true
 // });
 
-jQuery(document).ready(function($) {
-    $('.fixed .icon__menu').click(function(event) {
-        $('.fixed .nav').toggleClass('.fixed .nav__active');
-    });
-});
+// jQuery(document).ready(function($) {
+//     $('.fixed .icon__menu').click(function(event) {
+//         $('.fixed .nav').toggleClass('.fixed .nav__active');
+//     });
+// });
+
+$(document).ready(function(){
+    $('.menu__icon').click(function(){
+        $('.menu__icon').toggleClass('active')
+    })
+})
