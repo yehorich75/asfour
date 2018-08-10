@@ -57,6 +57,8 @@ var options = { speed: 3000, easing: "easeOutCubic" };
 
 $(document).ready(function(){
     $('.menu__icon').click(function(){
-        $('.menu__icon').toggleClass('active')
+        $('.menu__icon').toggleClass('menu__icon--active')
+        $('.fixed__nav').toggleClass('fixed__nav--active')
+        $('.nav__link').toggleClass('fixed__nav-link')
     })
 })
