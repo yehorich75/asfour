@@ -55,8 +55,12 @@ var options = { speed: 3000, easing: "easeOutCubic" };
 //     });
 // });
 
-$(document).ready(function(){
-    $('.menu__icon').click(function(){
-        $('.menu__icon').toggleClass('active')
+$(document).ready(function() {
+    $('.menu__icon').on('touchstart click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('.menu__icon').toggleClass('menu__icon--active')
+        $('.fixed__nav').toggleClass('fixed__nav--active')
+        $('.nav__link').toggleClass('fixed__nav-link')
     })
 })
