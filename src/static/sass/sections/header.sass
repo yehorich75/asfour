@@ -85,63 +85,56 @@
         align-items: center
         &__item
             padding: 0 7px
-
-
-nav.nav
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    align-items: center
-    margin: 0 auto $gap*2
-    a.nav__link
-        font-family: $ff-head
-        font-weight: 700
-        font-size: .85rem
-        color: $font-color
-        text-decoration: none
-        margin-bottom: 1rem
-        padding: 8px 10px
-        text-transform: uppercase
-        letter-spacing: 0.85px
-        cursor: pointer
-        background: $color--white
-        width: 100%
-        &:hover
-            color: lighten($font-color, 30%)
-        &__link--active
-            color: lighten($font-color, 30%)
-        &:first-child
-            margin-left: 0
+    .nav
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        margin: 0 auto $gap*2
+        a.nav__link
+            font-family: $ff-head
+            font-weight: 700
+            font-size: .85rem
+            color: $font-color
+            text-decoration: none
+            margin-bottom: 1rem
+            padding: 8px 10px
+            text-transform: uppercase
+            letter-spacing: 0.85px
+            cursor: pointer
+            background: $color--white
+            width: 100%
+            &:hover
+                color: lighten($font-color, 30%)
+            &__link--active
+                color: lighten($font-color, 30%)
+            &:first-child
+                margin-left: 0
 
 .fixed
-    position: fixed
-    top: 0
-    left: 0
-    width: 100vw
-    height: 7vh
-    z-index: 10
-    background: $color--white
-    display: flex
-    flex-direction: row
-    .logo
-        display: block
-        margin: 0 0 0 30px
-        img
-            width: 100px
-    // .nav
-    //     display: flex
-    //     flex-direction: row
-    //     justify-content: space-between
-    //     align-content: flex-end
-    //     margin: auto
-    //     a.nav__link
-    //         padding: 0 20px
-    //         color: $font-color
-    .contacts,
-    a.arrow
-        display: none
-    button.menu__icon
-        display: none
+    nav.nav
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        background: $color--white
+        display: flex
+        flex-direction: row
+        z-index: 10
+        .logo
+            display: block
+            margin: 0 0 0 30px
+            img
+                width: 100px
+        a.nav__link
+            padding: 20px 0
+            margin: 0
+            color: $font-color
+        .contacts,
+        a.arrow
+            display: none
+        button.menu__icon
+            display: none
 
 .contacts
     font-size: 1rem

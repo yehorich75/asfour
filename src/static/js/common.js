@@ -14,6 +14,7 @@ window.onscroll = function() {
     }
 };
 
+
 $(document).ready(function() {
     $(".hero__slider").slick({
         asNavFor: ".hero__captions",
@@ -60,7 +61,7 @@ $(document).ready(function() {
         e.stopPropagation();
         e.preventDefault();
         $('.menu__icon').toggleClass('menu__icon--active')
-        $('.fixed__nav').toggleClass('fixed__nav--active')
+        $('.nav').toggleClass('nav__active')
         $('.nav__link').toggleClass('fixed__nav-link')
     })
 })

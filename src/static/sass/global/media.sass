@@ -4,8 +4,9 @@
         .hero__title
             width: 100vw
             margin: 0
-            .logo
-                display: none
+            .nav
+                flex-direction: column
+            .logo,
             .hero__captions,
             .contacts,
             .socials
@@ -13,51 +14,56 @@
 
         .fixed
             height: 12vh
-            &__nav
+            .nav
+                flex-direction: column
                 transition: 0.5s
                 transform: translateY(-100%)
                 position: fixed
-            &__nav--active
+                a.nav__link
+                    width: 100%
+                    padding: 23px 0
+                    margin: 0
+            .nav__active
                 transform: translateY(0%)
                 flex-direction: column
                 width: 100vw
                 top: 17%
-                a.fixed__nav-link
-                    width: 100%
-                    padding: 23px 0
-                    margin: 0
 
-        button.menu__icon
-            outline: none
-            background: none
-            display: block
-            border: none
-            height: 50px
-            width: 50px
-            margin: auto
-            cursor: pointer
-            .divide
+
+            .menu__icon
+                outline: none
+                background: none
                 display: block
-                height: 2px
-                width: 30px
-                margin: 5px 0
-                background: $font-color
-                position: absolute
-                top: calc(50% - 1px)
-                left: calc(50% - 15px)
-                transition: 0.2s
-            .divide:nth-child(1)
-                transform: translateY(-10px)
-            .divide:nth-child(3)
-                transform: translateY(10px)
-            &--active
-                .divide:nth-child(1)
-                    transform: translateY(0px) rotate(-45deg)
-                .divide:nth-child(2)
-                    transform: translateX(-30px)
-                    opacity: 0
-                .divide:nth-child(3)
-                    transform: translateY(0px) rotate(45deg)
+                border: none
+                height: 50px
+                width: 50px
+                margin: auto
+                cursor: pointer
+                text-transform: uppercase
+
+                // .divide
+                //     display: block
+                //     height: 2px
+                //     width: 30px
+                //     margin: 5px 0
+                //     background: $font-color
+                //     position: absolute
+                //     top: calc(50% - 1px)
+                //     left: calc(50% - 15px)
+                //     transition: 0.2s
+                // .divide:nth-child(1)
+                //     transform: translateY(-10px)
+                // .divide:nth-child(3)
+                //     transform: translateY(10px)
+                // &--active
+                //     .divide:nth-child(1)
+                //         transform: translateY(0px) rotate(-45deg)
+                //     .divide:nth-child(2)
+                //         transform: translateX(-30px)
+                //         opacity: 0
+                //     .divide:nth-child(3)
+                //         transform: translateY(0px) rotate(45deg)
+
 
         .hero__captions,
         .contacts,
