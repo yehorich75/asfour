@@ -9,7 +9,8 @@
             .logo,
             .hero__captions,
             .contacts,
-            .socials
+            .socials,
+            .mobile__menu
                 display: none
 
         .fixed
@@ -27,19 +28,29 @@
                 transform: translateY(0%)
                 flex-direction: column
                 width: 100vw
-                top: 17%
+                top: 7%
 
 
-            .menu__icon
+            .mobile__menu
+                position: fixed
+                top: 0
                 outline: none
-                background: none
+                background: $color--white
                 display: block
                 border: none
                 height: 50px
-                width: 50px
-                margin: auto
-                cursor: pointer
-                text-transform: uppercase
+                width: 100%
+                z-index: 10
+                &--icon
+                    background-color: transparent
+                    border: $main-grey-border
+                    margin: 7px auto 0
+                    padding: 10px 20px
+                    width: 80px
+                    cursor: pointer
+                    text-transform: uppercase
+                    
+
 
                 // .divide
                 //     display: block
