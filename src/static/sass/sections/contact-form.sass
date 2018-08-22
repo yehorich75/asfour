@@ -4,19 +4,19 @@
         display: flex
         justify-content: space-between
         flex-wrap: wrap
-        .contact-form__item
-            flex-basis: calc(50% - 20px)
+    &__item
+        flex-basis: calc(50% - 20px)
+        padding: 0 10px
+        .input-group
+            width: 100%
+            margin-bottom: 38px
             padding: 0 10px
-            .input-group
-                width: 100%
-                margin-bottom: 38px
-                padding: 0 10px
-                &:last-child
-                    margin-bottom: 0
-            textarea
-                height: 100%
-                button
-                    color: $font-color
+            &:last-child
+                margin-bottom: 0
+        textarea
+            height: 100%
+            button
+                color: $font-color
 
 .form-control
     display: block
