@@ -4,11 +4,11 @@ mixin product-card(title, link, item_img, img_1, img_2, text, catalog_1, catalog
         .product__item--main
             a.product__item--link(href= link)
                 img.product__item--img(src= item_img)
-            .product__item--catalog
-                a(href= catalog_1)= catalog_1_name
-                    i.far.fa-file-pdf
-                a(href= catalog_2)= catalog_2_name
-                    i.far.fa-file-pdf
+            .product__item--catalogs
+                a.product__item--catalog(href= catalog_1)= catalog_1_name
+                    i.fi.fi-acrobat-reader
+                a.product__item--catalog(href= catalog_2)= catalog_2_name
+                    i.fi.fi-acrobat-reader
 
 mixin icon(name,mod)
     - mod = mod || ''

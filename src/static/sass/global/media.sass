@@ -6,7 +6,6 @@
             margin: 0
             .nav
                 flex-direction: column
-            .logo,
             .hero__captions,
             .contacts,
             .socials,
@@ -15,6 +14,8 @@
 
         .fixed
             height: 12vh
+            .logo
+                display: none
             .nav
                 flex-direction: column
                 transition: 0.5s
@@ -50,13 +51,14 @@
                     cursor: pointer
                     text-transform: uppercase
 
-.contact-form
-    margin-bottom: 0px
-
-.contact-form__items
-    .contact-form__item
-        flex-basis: 100%
-        margin-bottom: 40px
+    .contact-form
+        margin-bottom: 0px
+        &__item
+            flex-basis: 100%
+            margin-bottom: 40px
+            button
+                display: block
+                margin: 20px auto 0
 
 
                 // .divide
@@ -100,10 +102,10 @@
                 writing-mode: horizontal-tb
                 position: inherit
                 right: 0
-            .product__item--info
+            &--info
                 width: 100%
                 text-align: center
-                .product__item--info-img
+                &-img
                     img
                         width: 50%
                         height: auto
@@ -121,11 +123,12 @@
         .video__present
             width: auto
 
-.certificate
-    .certificate__items
-        .certificate__item
-            width: 100%
-            height: auto
+    .certificate
+        .certificate__items
+            flex-wrap: wrap
+            .certificate__item
+                width: 100%
+                height: auto
 
     footer.footer
         padding: 50px 0 35px
