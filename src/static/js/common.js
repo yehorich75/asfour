@@ -65,3 +65,25 @@ $(document).ready(function() {
         $('.nav__link').toggleClass('fixed__nav-link')
     })
 })
+
+window.addEventListener('load', function() {
+    var
+        fac = new FastAverageColor(),
+        container = document.querySelector('.image-container'),
+        color = fac.getColor(container.querySelector('img'));
+
+    container.style.backgroundColor = color.rgba;
+    container.style.color = color.isDark ? '#fff' : '#000';
+
+    console.log(color);
+    // {
+    //     error: null,
+    //     rgb: 'rgb(255, 0, 0)',
+    //     rgba: 'rgba(255, 0, 0, 1)',
+    //     hex: '#ff0000',
+    //     hexa: '#ff0000ff',
+    //     value: [255, 0, 0, 255],
+    //     isDark: true,
+    //     isLight: false
+    // }
+}, false);
