@@ -68,22 +68,54 @@ $(document).ready(function() {
 
 window.addEventListener('load', function() {
     var
-        fac = new FastAverageColor(),
-        container = document.querySelector('.image-container'),
-        color = fac.getColor(container.querySelector('img'));
+        ac = new FastAverageColor({ defaultColor: [0, 0, 0, 0] }),
+        items = document.querySelectorAll('.product__item--link');
 
-    container.style.backgroundColor = color.rgba;
-    container.style.color = color.isDark ? '#fff' : '#000';
+    function getGradient(image, padding) {
+        var value = 'linear-gradient(to bottom, ';
 
-    console.log(color);
-    // {
-    //     error: null,
-    //     rgb: 'rgb(255, 0, 0)',
-    //     rgba: 'rgba(255, 0, 0, 1)',
-    //     hex: '#ff0000',
-    //     hexa: '#ff0000ff',
-    //     value: [255, 0, 0, 255],
-    //     isDark: true,
-    //     isLight: false
-    // }
+        var
+            naturalHeight = image.naturalHeight,
+            height = image.height,
+            count = 10,
+            naturalHeightPart = Math.floor(naturalHeight / count),
+            heightPart = Math.floor(height / count),
+            color,
+            top,
+            bottom,
+            parts = [];
+
+        for (var i = 0; i < count; i++) {
+            color = ac.getColor(image, { left: 0, top: i * naturalHeightPart, height: naturalHeightPart });
+            top = i ? (i * heightPart) + padding : 0;
+            bottom = ((i + 1) * heightPart - 1) + padding;
+            parts.push(color.rgb + ' ' + top + 'px, ' + color.rgb + ' ' + bottom + 'px');
+        }
+
+        value += parts.join(', ');
+
+        value += ')';
+
+        return {
+            value: value,
+            lastColor: color
+        };
+    }
+
+    function updateStripes() {
+        for (var i = 0; i < items.length; i++) {
+            var
+                item = items[i],
+                image = item.querySelector('img'),
+                padding = 30,
+                gradient = getGradient(image, padding);
+
+            item.style.background = gradient.value;
+            item.style.color = gradient.lastColor.isDark ? 'white' : 'black';
+        }
+    }
+
+    window.addEventListener('resize', updateStripes, false);
+
+    updateStripes();
 }, false);
