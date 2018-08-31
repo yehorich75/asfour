@@ -11,8 +11,8 @@ section.product
         margin: 0 10px 30px
         box-shadow: -3px 4px 5px 0px #e1e1e1
         transition: all .2s ease-in-out
-        &:hover
-            transform: scale(1.1)
+        // &:hover
+        //     transform: scale(1.1)
         &--link
             text-decoration: none
             position: relative
@@ -22,7 +22,7 @@ section.product
         h4.product__item--title
             font-weight: 600
             letter-spacing: 4px
-            color: $blue-color
+            color: $color--blue
             height: 60px
             padding: 0
             margin: 0
@@ -34,23 +34,37 @@ section.product
             display: flex
             align-items: center
             justify-content: center
-            font-size: .8rem
+            font-size: .7rem
             text-transform: uppercase
             padding: 6px 0 4px
             position: absolute
-            bottom: 20%
+            bottom: 10%
             left: 30%
-            z-index: 10
             a.product__item--catalog
                 text-decoration: none
-                padding-bottom: 5px
+                padding: $gap/2 $gap
+                margin-bottom: $gap
                 background-color: $color--white
-                padding: 10px 20px
-                margin: 0 5px
-                font-size: 12px
-                i
-                    font-size: 20px
+                color: $color--blue
+                position: relative
+                &::before
+                    content: ''
+                    bottom: 0
+                    left: 0
+                    position: absolute
+                    width: 0
+                    height: 5px
+                    background-color: $color--red
+                    transition: 0.2s
+                &:hover
+                    &:before
+                        width: 100%
+                .fi
                     color: $color--red
+                    border: 1px solid $color--red
+                    border-radius: 3px
+                    padding: 3px
+                    margin-left: $gap/2
 
 
 
