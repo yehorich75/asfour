@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 
 // Работа с Pug
 gulp.task('pug', function() {
-    return gulp.src('src/pug/pages/index.pug')
+    return gulp.src('src/pug/pages/*.pug')
         .pipe(gp.plumber())
         .pipe(gp.pug({
             pretty: true
