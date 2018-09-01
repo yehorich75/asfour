@@ -6,6 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.24.6",
+    "fast-average-color": "^4.2.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-cache": "^1.0.2",
