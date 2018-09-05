@@ -69,7 +69,7 @@ $(document).ready(function() {
 window.addEventListener('load', function() {
     var
         ac = new FastAverageColor({ defaultColor: [0, 0, 0, 0] }),
-        items = document.querySelectorAll('.product__item--link');
+        items = document.querySelectorAll('.product__item--main');
 
     function getGradient(image, padding) {
         var value = 'linear-gradient(to bottom, ';
