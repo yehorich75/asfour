@@ -11,15 +11,7 @@ section.product
         margin: 0 10px 30px
         box-shadow: -3px 4px 5px 0px #e1e1e1
         transition: all .2s ease-in-out
-        // &:hover
-        //     transform: scale(1.1)
-        &--main
-            padding: 30px
-        &--img
-            min-width: 100%
-            min-height: 100%
-            border: 1px solid $color--white
-        h4.product__item--title
+        &--title
             font-weight: 600
             letter-spacing: 4px
             color: $color--blue
@@ -30,6 +22,15 @@ section.product
             display: flex
             align-items: center
             justify-content: center
+        &--main
+            padding: 30px
+        &--link
+            text-decoration: none
+            display: block
+        &--img
+            min-width: 100%
+            min-height: 100%
+            border: 1px solid $color--white
         &--more
             display: flex
             align-items: center
@@ -40,10 +41,6 @@ section.product
             position: absolute
             bottom: 10%
             left: 34%
-        &--link
-            text-decoration: none
-            position: relative
-            display: block
             // a.product__item--more
             //     text-decoration: none
             //     padding: $gap/2 $gap
@@ -60,15 +57,15 @@ section.product
             //         height: 3px
             //         background-color: $color--red
             //         transition: 0.2s
-            //     &:hover
-            //         &:before
-            //             width: 100%
-            //     .fi
-            //         color: $color--red
-            //         border: 1px solid $color--red
-            //         border-radius: 3px
-            //         padding: 3px
-            //         margin-left: $gap/2
+                // &:hover
+                //     &:before
+                //         width: 100%
+                // .fi
+                //     color: $color--red
+                //     border: 1px solid $color--red
+                //     border-radius: 3px
+                //     padding: 3px
+                //     margin-left: $gap/2
 
 
 
