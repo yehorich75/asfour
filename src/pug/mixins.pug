@@ -1,11 +1,10 @@
-mixin product-card(title, link, item_img, img_1, img_2, button_text)
+mixin product-card(title, item_img, link, button_text)
     .product__item
         h4.product__item--title= title
         .product__item--main
-            a.product__item--link(href= link)
-                img.product__item--img(src= item_img)
-            .product__item--more
-                a.product__item--link(href= link)= button_text
+            img.product__item--img(src= item_img)
+        .product__item--more
+            a.product__item--link(href= link)= button_text
 
 mixin icon(name,mod)
     - mod = mod || ''
