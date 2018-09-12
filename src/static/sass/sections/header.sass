@@ -116,53 +116,50 @@
                 margin-left: 0
 
 .fixed
+    .logo
+        display: block
+        margin-top: $gap
+        img
+            width: 200px
+    .socials
+        display: flex
+        font-size: 30px
+        color: $color--white
+        justify-content: center
+        align-items: center
+        &__item
+            padding: 0 7px
     .nav
+        display: flex
+        flex-direction: row
+        z-index: 5
+        justify-content: space-between
+        align-items: center
+        margin: 0 auto $gap*2
         position: fixed
         top: 0
         left: 0
         width: 100%
         background: $color--white
-        display: flex
-        flex-direction: row
-        z-index: 5
-        .logo
-            display: block
-            margin-top: $gap
-            img
-                width: 200px
-        .socials
-            display: flex
-            font-size: 30px
-            color: $color--white
-            justify-content: center
-            align-items: center
-            &__item
-                padding: 0 7px
-        .nav
-            display: flex
-            flex-direction: column
-            justify-content: space-between
-            align-items: center
-            margin: 0 auto $gap*2
-            a.nav__link
-                font-family: $ff-head
-                font-weight: 700
-                font-size: .85rem
-                color: $font-color
-                text-decoration: none
-                margin-bottom: 1rem
-                padding: 8px 10px
-                text-transform: uppercase
-                letter-spacing: 0.85px
-                cursor: pointer
-                background: $color--white
-                width: 100%
-                &:hover
-                    color: lighten($font-color, 30%)
-                &__link--active
-                    color: lighten($font-color, 30%)
-                &:first-child
-                    margin-left: 0
+        a.nav__link
+            font-family: $ff-head
+            font-weight: 700
+            font-size: .85rem
+            color: $font-color
+            text-decoration: none
+            margin-bottom: 1rem
+            padding: 8px 10px
+            text-transform: uppercase
+            letter-spacing: 0.85px
+            cursor: pointer
+            background: $color--white
+            width: 100%
+            &:hover
+                color: lighten($font-color, 30%)
+            &__link--active
+                color: lighten($font-color, 30%)
+            &:first-child
+                margin-left: 0
 
     // .fixed
     //     .nav
@@ -264,5 +261,6 @@
             transform: translateY(10px)
         100%
             transform: translateY(0px)
+
 
 
