@@ -90,7 +90,7 @@ gulp.task('serve', function() {
 
 // Работа с Img
 gulp.task('img:build', function() {
-    return gulp.src('src/static/img/**/*.{jpg, png, webp, gif}')
+    return gulp.src('src/static/img/**/**/*.{jpg, png, webp, gif}')
         .pipe(cache(imagemin([
             mozjpeg({
                 quality: 65
