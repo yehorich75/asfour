@@ -107,7 +107,8 @@ gulp.task('scripts:lib', function() {
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/slick-carousel/slick/slick.min.js',
             'src/static/js/smooth-scroll.polyfills.min.js',
-            'node_modules/fast-average-color/dist/index.min.js'
+            'node_modules/fast-average-color/dist/index.min.js',
+            'src/static/js/classie.js'
             // 'build/static/libs/magnific/jquery.magnific-popup.min.js',
             // 'build/static/libs/bxslider/jquery.bxslider.min.js',
             // 'build/static/libs/maskedinput/maskedinput.js',
