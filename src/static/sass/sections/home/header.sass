@@ -116,78 +116,50 @@
                 margin-left: 0
 
 .fixed
+    .logo
+        display: block
+        margin-top: $gap
+        img
+            width: 200px
+    .socials
+        display: flex
+        font-size: 30px
+        color: $color--white
+        justify-content: center
+        align-items: center
+        &__item
+            padding: 0 7px
     .nav
+        display: flex
+        flex-direction: row
+        z-index: 5
+        justify-content: space-between
+        align-items: center
+        margin: 0 auto $gap*2
         position: fixed
         top: 0
         left: 0
         width: 100%
         background: $color--white
-        display: flex
-        flex-direction: row
-        z-index: 5
-        .logo
-            display: block
-            margin-top: $gap
-            img
-                width: 200px
-        .socials
-            display: flex
-            font-size: 30px
-            color: $color--white
-            justify-content: center
-            align-items: center
-            &__item
-                padding: 0 7px
-        .nav
-            display: flex
-            flex-direction: column
-            justify-content: space-between
-            align-items: center
-            margin: 0 auto $gap*2
-            a.nav__link
-                font-family: $ff-head
-                font-weight: 700
-                font-size: .85rem
-                color: $font-color
-                text-decoration: none
-                margin-bottom: 1rem
-                padding: 8px 10px
-                text-transform: uppercase
-                letter-spacing: 0.85px
-                cursor: pointer
-                background: $color--white
-                width: 100%
-                &:hover
-                    color: lighten($font-color, 30%)
-                &__link--active
-                    color: lighten($font-color, 30%)
-                &:first-child
-                    margin-left: 0
-
-    // .fixed
-    //     .nav
-    //         position: fixed
-    //         top: 0
-    //         left: 0
-    //         width: 100%
-    //         background: $color--white
-    //         display: flex
-    //         flex-direction: row
-    //         z-index: 10
-    //         .logo
-    //             display: block
-    //             margin: 0 0 0 30px
-    //             img
-    //                 width: 100px
-    //         a.nav__link
-    //             padding: 20px 0
-    //             margin: 0
-    //             color: $font-color
-    //         .contacts,
-    //         a.arrow
-    //             display: none
-    //         button.menu__icon
-    //             display: none
+        a.nav__link
+            font-family: $ff-head
+            font-weight: 700
+            font-size: .85rem
+            color: $font-color
+            text-decoration: none
+            margin: 1rem auto
+            padding: 8px 10px
+            text-transform: uppercase
+            letter-spacing: 0.85px
+            cursor: pointer
+            background: $color--white
+            width: 100%
+            &:hover
+                color: lighten($font-color, 30%)
+            &__link--active
+                color: lighten($font-color, 30%)
+            &:first-child
+                margin-left: 0
 
 .contacts
     font-size: 1rem
@@ -221,24 +193,6 @@
     &__phone
         margin-bottom: 10px
 
-    // .contact
-    //     display: inline-block
-    //     vertical-align: top
-    //     padding: 10px 10px 8px
-    //     color: #424242
-    //     transition: 0.3s
-    //     text-decoration: none
-    //     &:hover
-    //         color: lighten(#424242, 20%)
-    //     &:first-child
-    //         margin-right: 8px
-    //         padding-right: 18px
-    //         border-right: 1px solid #e2e2e2
-    //     &__icon
-    //         margin-right: 7px
-    //         &--email
-    //             font-size: 1.2rem
-
     .arrow
         height: 40px
         width: 2px
@@ -264,5 +218,6 @@
             transform: translateY(10px)
         100%
             transform: translateY(0px)
+
 
 
